@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Personal — Rachit Lohani";
+const description = "Personal notes, interests, and reflections.";
+---
+<BaseLayout title={title} description={description}>
+  <div class="page">
+    <Nav />
+    <main class="content">
+      <header class="content-header">
+        <p class="eyebrow">Personal</p>
+        <h1>Notes from work and life.</h1>
+        <p class="lead">Thoughts on leadership, learning, and the human side of technology.</p>
+      </header>
+
+      <section class="content-block">
+        <h2>What I write about</h2>
+        <ul class="bullets">
+          <li>Leadership lessons from high‑growth teams.</li>
+          <li>Decision‑making under uncertainty.</li>
+          <li>Career arcs, mentorship, and values.</li>
+          <li>Systems thinking beyond software.</li>
+        </ul>
+      </section>
+
+      <section class="content-block">
+        <h2>Outside of work</h2>
+        <ul class="bullets">
+          <li>Reading and collecting great ideas.</li>
+          <li>Learning from operators across industries.</li>
+          <li>Giving back through mentoring.</li>
+        </ul>
+      </section>
+
+      <a class="button" href="/contact">Connect with me</a>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

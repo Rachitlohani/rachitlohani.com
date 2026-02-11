@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "About — Rachit Lohani";
+const description = "A technology executive focused on product delivery, resilient systems, and leadership development.";
+---
+<BaseLayout title={title} description={description}>
+  <div class="page">
+    <Nav />
+    <main class="content">
+      <header class="content-header">
+        <p class="eyebrow">About</p>
+        <h1>Technology leadership with a builder’s mindset.</h1>
+        <p class="lead">
+          I’m a CTO with a track record of turning vision into reliable execution. I care about
+          systems that last, teams that trust each other, and products that earn loyalty.
+        </p>
+      </header>
+
+      <section class="content-block">
+        <h2>How I work</h2>
+        <p>
+          I align business strategy with engineering reality, then build operating rhythms that
+          deliver consistently. My work blends architecture, product strategy, and leadership
+          development to create leverage across the organization.
+        </p>
+      </section>
+
+      <section class="content-block">
+        <h2>What I focus on</h2>
+        <ul class="bullets">
+          <li>Platform strategy, modernization, and reliability.</li>
+          <li>Executive alignment, roadmap clarity, and decision velocity.</li>
+          <li>Leadership coaching for senior engineers and managers.</li>
+        </ul>
+      </section>
+
+      <section class="content-block">
+        <h2>Outside the office</h2>
+        <p>
+          I’m curious about systems thinking, long‑term product strategy, and how leaders build
+          cultures that stay grounded as they scale.
+        </p>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

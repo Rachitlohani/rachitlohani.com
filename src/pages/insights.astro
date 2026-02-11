@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
+import { mediumPosts } from "../data/medium";
+
+const title = "Insights — Rachit Lohani";
+const description = "Essays on technology leadership, product delivery, and systems thinking.";
+
+const entries = (await getCollection("insights")).filter((entry) => !entry.data.draft);
+const sorted = entries.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const localPosts = sorted.map((entry) => ({
+  type: "local",
+  title: entry.data.title,
+  description: entry.data.description,
+  url: `/insights/${entry.slug}/`,
+  date: entry.data.pubDate.toLocaleDateString("en-US", { dateStyle: "long" }),
+  tags: entry.data.tags,
+  image: entry.data.image ?? ""
+}));
+
+const mediumList = mediumPosts.map((post) => ({
+  type: "medium",
+  title: post.title,
+  description: "",
+  url: post.url,
+  date: "Read on Medium",
+  tags: [],
+  image: post.image ?? ""
+}));
+
+const allPosts = [...localPosts, ...mediumList];
+const initialCount = 8;
+const initialItems = allPosts.slice(0, initialCount);
+---
+<BaseLayout title={title} description={description}>
+  <div class="page">
+    <Nav />
+    <main class="content">
+      <header class="content-header">
+        <p class="eyebrow">Insights</p>
+        <h1 class="insights-title">Writing on leadership, systems, and execution.</h1>
+        <p class="lead">Long‑form thinking for builders and operators.</p>
+      </header>
+      <div class="search-bar">
+        <input id="insight-search" type="search" placeholder="Search insights…" aria-label="Search insights" />
+      </div>
+
+      {allPosts.length === 0 ? (
+        <div class="empty-state">
+          <p>No posts yet. New essays are coming soon.</p>
+        </div>
+      ) : (
+        <>
+          <ul class="post-list" id="insight-list">
+            {initialItems.map((entry) => (
+              <li class="post-card">
+                <a href={entry.url} rel={entry.type === "medium" ? "noopener noreferrer" : undefined}>
+                  <div
+                    class={`thumb ${entry.image ? "" : "placeholder"}`}
+                    style={entry.image ? `background-image: url('${entry.image}')` : undefined}
+                  />
+                  <div class="card-body">
+                    <h2>{entry.title}</h2>
+                    {entry.description ? <p>{entry.description}</p> : null}
+                    <span>{entry.date}</span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div id="insight-sentinel" class="infinite-sentinel" aria-hidden="true"></div>
+          <button id="load-more" class="button ghost load-more" type="button">Load more</button>
+        </>
+      )}
+    </main>
+    <Footer />
+  </div>
+  <script type="application/json" id="posts-data" set:html={JSON.stringify(allPosts)}></script>
+  <script is:inline>
+    (() => {
+      const dataEl = document.getElementById("posts-data");
+      const allPosts = dataEl ? JSON.parse(dataEl.textContent || "[]") : [];
+      const list = document.getElementById("insight-list");
+      const input = document.getElementById("insight-search");
+      const sentinel = document.getElementById("insight-sentinel");
+      const loadMore = document.getElementById("load-more");
+      const pageSize = 8;
+      let page = 1;
+      let filtered = allPosts;
+
+      const render = () => {
+        if (!list) return;
+        list.innerHTML = "";
+        const slice = filtered.slice(0, page * pageSize);
+        slice.forEach((entry) => {
+          const li = document.createElement("li");
+          li.className = "post-card";
+          const rel = entry.type === "medium" ? "noopener noreferrer" : "";
+          li.innerHTML = `
+            <a href="${entry.url}" ${rel ? `rel="${rel}"` : ""}>
+              <div class="thumb ${entry.image ? "" : "placeholder"}" ${
+                entry.image ? `style="background-image:url('${entry.image}')"` : ""
+              }></div>
+              <div class="card-body">
+                <h2>${entry.title}</h2>
+                ${entry.description ? `<p>${entry.description}</p>` : ""}
+                <span>${entry.date}</span>
+              </div>
+            </a>
+          `;
+          list.appendChild(li);
+        });
+        if (sentinel) {
+          sentinel.style.display = slice.length < filtered.length ? "block" : "none";
+        }
+        if (loadMore) {
+          loadMore.style.display = slice.length < filtered.length ? "inline-flex" : "none";
+        }
+      };
+
+      if (input) {
+        input.addEventListener("input", (event) => {
+          const query = event.target.value.toLowerCase().trim();
+          filtered = allPosts.filter((entry) => {
+            const title = entry.title.toLowerCase();
+            const description = (entry.description || "").toLowerCase();
+            const tags = (entry.tags || []).join(" ").toLowerCase();
+            return title.includes(query) || description.includes(query) || tags.includes(query);
+          });
+          page = 1;
+          render();
+        });
+      }
+
+      if (loadMore) {
+        loadMore.addEventListener("click", () => {
+          page += 1;
+          render();
+        });
+      }
+
+      if (sentinel && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && page * pageSize < filtered.length) {
+            page += 1;
+            render();
+          }
+        }, { rootMargin: "200px" });
+        observer.observe(sentinel);
+      }
+
+      render();
+    })();
+  </script>
+</BaseLayout>

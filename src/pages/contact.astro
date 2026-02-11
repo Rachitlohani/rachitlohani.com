@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Contact — Rachit Lohani";
+const description = "Connect with Rachit about speaking, advising, and leadership partnerships.";
+---
+<BaseLayout title={title} description={description}>
+  <div class="page">
+    <Nav />
+    <main class="content">
+      <header class="content-header">
+        <p class="eyebrow">Contact</p>
+        <h1>Let’s talk.</h1>
+        <p class="lead">For speaking, advising, or leadership partnerships, reach out directly.</p>
+      </header>
+
+      <section class="content-block">
+        <div class="contact-card">
+          <p><strong>Email</strong></p>
+          <a href="mailto:hello@rachitlohani.com">hello@rachitlohani.com</a>
+          <p class="muted">I respond within a few business days.</p>
+        </div>
+      </section>
+
+      <section class="content-block">
+        <h2>Elsewhere</h2>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/rachitlohani/" rel="me">LinkedIn</a>
+          <a href="https://medium.com/@rachitlohani" rel="me">Medium</a>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

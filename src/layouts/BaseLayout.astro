@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Rachit Lohani — CTO",
+  description = "CTO and technology executive. Building durable systems, teams, and products.",
+  canonical = undefined
+} = Astro.props;
+
+const site = "https://rachitlohani.com";
+const url = new URL(Astro.url.pathname, site).toString();
+const canonicalUrl = canonical ?? url;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Rachit Lohani",
+  jobTitle: "Chief Technology Officer",
+  url: site,
+  sameAs: [
+    "https://www.linkedin.com/in/rachitlohani/",
+    "https://medium.com/@rachitlohani"
+  ]
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

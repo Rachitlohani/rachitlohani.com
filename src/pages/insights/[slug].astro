@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("insights");
+  return entries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const title = `${entry.data.seoTitle ?? entry.data.title} — Rachit Lohani`;
+const description = entry.data.description;
+const canonical = `https://rachitlohani.com/insights/${entry.slug}/`;
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: entry.data.seoTitle ?? entry.data.title,
+  description: entry.data.description,
+  author: {
+    "@type": "Person",
+    name: "Rachit Lohani"
+  },
+  datePublished: entry.data.pubDate.toISOString(),
+  mainEntityOfPage: canonical
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <div class="page">
+    <Nav />
+    <main class="content">
+      <article class="post">
+        <p class="eyebrow">Insight</p>
+        <h1>{entry.data.title}</h1>
+        <p class="lead">{entry.data.description}</p>
+        <div class="post-meta">
+          <span>{entry.data.pubDate.toLocaleDateString("en-US", { dateStyle: "long" })}</span>
+          {entry.data.tags.length ? <span> · {entry.data.tags.join(" · ")}</span> : null}
+        </div>
+        <div class="post-body">
+          <Content />
+        </div>
+      </article>
+      <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

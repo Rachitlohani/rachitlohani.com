@@ -1,0 +1,17 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/insights", label: "Insights" },
+  { href: "/personal", label: "Personal" },
+  { href: "/contact", label: "Contact" }
+];
+---
+<nav class="nav">
+  <a class="brand" href="/">Rachit Lohani</a>
+  <div class="nav-links">
+    {links.map((link) => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </div>
+</nav>

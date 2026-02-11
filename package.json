@@ -1,0 +1,19 @@
+{
+  "name": "rachitlohani-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/sitemap": "^3.1.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

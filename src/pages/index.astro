@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Rachit Lohani — CTO";
+const description = "CTO and technology executive helping teams ship durable products with clarity, velocity, and trust.";
+---
+<BaseLayout title={title} description={description}>
+  <div class="page">
+    <Nav />
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Product · Operator · Thinker</p>
+          <h1>Building resilient systems and high‑trust teams.</h1>
+          <p class="lead">
+            I’m a technology executive focused on translating business intent into scalable systems,
+            shipping decisive products, and mentoring leaders.
+          </p>
+          <div class="cta-row">
+            <a class="button" href="/contact">Work with me</a>
+            <a class="button ghost" href="/about">Read my story</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p class="label">Current focus</p>
+          <ul>
+            <li>Platform strategy & modernization</li>
+            <li>Product engineering leadership</li>
+            <li>Operational excellence at scale</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="panel">
+          <h2>Operator</h2>
+          <p>
+            I build calm, repeatable execution in complex environments—aligning architecture,
+            roadmap, and culture so teams deliver with confidence.
+          </p>
+        </div>
+        <div class="panel">
+          <h2>Leader</h2>
+          <p>
+            I mentor senior engineers and managers to grow into stewards of clarity, accountability,
+            and long‑term leverage.
+          </p>
+        </div>
+        <div class="panel">
+          <h2>Writer</h2>
+          <p>
+            I write about systems thinking, executive decision‑making, and the craft of building
+            enduring technology organizations.
+          </p>
+        </div>
+      </section>
+
+      <section class="quote">
+        <h2>Ideas I’m exploring</h2>
+        <p>
+          How to build durable architecture without slowing delivery. How to turn strategy into
+          execution. How to help leaders operate with intention.
+        </p>
+        <a class="text-link" href="/insights">Browse insights</a>
+      </section>
+
+      <section class="callout">
+        <div>
+          <h2>Personal notes</h2>
+          <p>
+            Beyond the day‑to‑day, I write about leadership lessons, decision‑making, and the human
+            side of building technology organizations.
+          </p>
+        </div>
+        <a class="button" href="/personal">Read more</a>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>
