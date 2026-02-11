@@ -5,24 +5,32 @@ const {
   title = "Rachit Lohani — CTO, Tech Executive & Thought Leader",
   description = "Official site of Rachit Lohani, CTO and technology executive. Leadership, experience, insights, and media.",
   canonical = undefined,
-  noindex = false
+  noindex = false,
+  personSchema = null
 } = Astro.props;
 
 const site = "https://rachitlohani.com";
 const url = new URL(Astro.url.pathname, site).toString();
 const canonicalUrl = canonical ?? url;
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Rachit Lohani",
-  jobTitle: "Chief Technology Officer",
-  url: site,
-  sameAs: [
-    "https://www.linkedin.com/in/rachitlohani/",
-    "https://medium.com/@rachitlohani"
-  ]
-};
+const jsonLd =
+  personSchema ??
+  ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Rachit Lohani",
+    jobTitle: "Technology Executive and Advisor",
+    url: site,
+    sameAs: [
+      "https://www.linkedin.com/in/rachitlohani/",
+      "https://www.youtube.com/@RachitLohani",
+      "https://medium.com/@rlohani"
+    ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Rachit Lohani"
+    }
+  });
 ---
 <!doctype html>
 <html lang="en">

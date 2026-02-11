@@ -3,10 +3,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
-const title = "About — Rachit Lohani";
-const description = "A technology executive focused on product delivery, resilient systems, and leadership development.";
+const title = "About Rachit Lohani – Career, Experience, Insights";
+const description =
+  "Learn about Rachit Lohani’s background, leadership philosophy, product strategy expertise, and professional journey.";
+
+const personSchema = {
+  "@context": "http://schema.org",
+  "@type": "Person",
+  name: "Rachit Lohani",
+  url: "https://rachitlohani.com",
+  sameAs: [
+    "https://www.linkedin.com/in/rachitlohani",
+    "https://www.youtube.com/@RachitLohani",
+    "https://medium.com/@rlohani"
+  ],
+  jobTitle: "Technology Executive and Advisor",
+  worksFor: {
+    "@type": "Organization",
+    name: "Rachit Lohani"
+  }
+};
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} personSchema={personSchema}>
   <div class="page">
     <Nav />
     <main class="content">
@@ -14,22 +32,23 @@ const description = "A technology executive focused on product delivery, resilie
         <p class="eyebrow">About</p>
         <h1>Rachit Lohani — technology leadership with a builder’s mindset.</h1>
         <p class="lead">
-          I’m a CTO with a track record of turning vision into reliable execution. I care about
-          systems that last, teams that trust each other, and products that earn loyalty.
+          Rachit Lohani is a CTO with a track record of turning vision into reliable execution.
+          He cares about systems that last, teams that trust each other, and products that earn
+          loyalty.
         </p>
       </header>
 
       <section class="content-block">
-        <h2>How I work</h2>
+        <h2>How Rachit Lohani works</h2>
         <p>
-          I align business strategy with engineering reality, then build operating rhythms that
-          deliver consistently. My work blends architecture, product strategy, and leadership
-          development to create leverage across the organization.
+          Rachit S Lohani aligns business strategy with engineering reality, then builds operating
+          rhythms that deliver consistently. His work blends architecture, product strategy, and
+          leadership development to create leverage across the organization.
         </p>
       </section>
 
       <section class="content-block">
-        <h2>What I focus on</h2>
+        <h2>Rachit Lohani leadership focus</h2>
         <ul class="bullets">
           <li>Platform strategy, modernization, and reliability.</li>
           <li>Executive alignment, roadmap clarity, and decision velocity.</li>
@@ -40,8 +59,8 @@ const description = "A technology executive focused on product delivery, resilie
       <section class="content-block">
         <h2>Outside the office</h2>
         <p>
-          I’m curious about systems thinking, long‑term product strategy, and how leaders build
-          cultures that stay grounded as they scale.
+          Lohani Tech Leader perspectives often explore systems thinking, long‑term product
+          strategy, and how leaders build cultures that stay grounded as they scale.
         </p>
       </section>
     </main>
