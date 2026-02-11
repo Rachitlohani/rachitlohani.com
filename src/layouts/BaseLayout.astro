@@ -31,6 +31,21 @@ const jsonLd =
       name: "Rachit Lohani"
     }
   });
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Rachit Lohani",
+  url: site
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  url: canonicalUrl,
+  description
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -48,7 +63,7 @@ const jsonLd =
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
-    <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+    <script type="application/ld+json">{JSON.stringify([jsonLd, webSiteSchema, webPageSchema])}</script>
   </head>
   <body>
     <slot />

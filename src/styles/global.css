@@ -354,6 +354,17 @@ h2 {
   line-height: 1.7;
 }
 
+.related {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.related ul {
+  padding-left: 18px;
+  color: var(--muted);
+}
+
 .contact-card {
   padding: 20px;
   background: white;
@@ -381,6 +392,14 @@ h2 {
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
 }
 
 .media-grid {
