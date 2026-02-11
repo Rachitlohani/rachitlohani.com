@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { clientDocs } from "../../data/client-docs";
+
+export async function getStaticPaths() {
+  return clientDocs.map((doc) => ({ params: { slug: doc.slug }, props: { doc } }));
+}
+
+const { doc } = Astro.props;
+const title = `${doc.title} — Rachit Lohani`;
+const description = "Private client briefing";
+const canonical = `https://rachitlohani.com/client/${doc.slug}/`;
+---
+<BaseLayout title={title} description={description} canonical={canonical} noindex={true}>
+  <div class="page">
+    <Nav />
+    <main class="content">
+      <header class="content-header">
+        <p class="eyebrow">Client Briefing</p>
+        <h1>{doc.title}</h1>
+        <p class="lead">
+          This document is restricted. Please sign in with the email address you were granted
+          access with to view it.
+        </p>
+      </header>
+
+      <section class="content-block">
+        <div class="media-card">
+          <div class="media-embed">
+            <iframe
+              loading="lazy"
+              src={`https://docs.google.com/document/d/${doc.docId}/preview`}
+              title={doc.title}
+              frameborder="0"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

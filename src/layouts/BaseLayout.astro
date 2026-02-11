@@ -2,9 +2,10 @@
 import "../styles/global.css";
 
 const {
-  title = "Rachit Lohani — CTO",
-  description = "CTO and technology executive. Building durable systems, teams, and products.",
-  canonical = undefined
+  title = "Rachit Lohani — CTO, Tech Executive & Thought Leader",
+  description = "Official site of Rachit Lohani, CTO and technology executive. Leadership, experience, insights, and media.",
+  canonical = undefined,
+  noindex = false
 } = Astro.props;
 
 const site = "https://rachitlohani.com";
@@ -38,6 +39,7 @@ const jsonLd = {
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
     <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
   </head>
   <body>
