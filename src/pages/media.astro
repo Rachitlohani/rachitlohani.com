@@ -12,15 +12,29 @@ const itemListSchema = {
   "@type": "ItemList",
   itemListElement: mediaItems.map((item, index) => {
     const url = new URL(item.url);
-    const id = url.searchParams.get("v") ?? "";
+    if (item.type === "youtube") {
+      const id = url.searchParams.get("v") ?? "";
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "VideoObject",
+          name: item.title,
+          description: item.description,
+          embedUrl: `https://www.youtube.com/embed/${id}`,
+          url: item.url
+        }
+      };
+    }
+    const spotifyId = url.pathname.split("/").pop() ?? "";
     return {
       "@type": "ListItem",
       position: index + 1,
       item: {
-        "@type": "VideoObject",
+        "@type": "AudioObject",
         name: item.title,
         description: item.description,
-        embedUrl: `https://www.youtube.com/embed/${id}`,
+        embedUrl: `https://open.spotify.com/embed/episode/${spotifyId}`,
         url: item.url
       }
     };
@@ -46,13 +60,18 @@ const itemListSchema = {
           <div class="media-grid">
             {mediaItems.map((item) => {
               const url = new URL(item.url);
-              const id = url.searchParams.get("v") ?? "";
+              const id = item.type === "youtube" ? url.searchParams.get("v") ?? "" : "";
+              const spotifyId = item.type === "spotify" ? url.pathname.split("/").pop() ?? "" : "";
               return (
                 <div class="media-card">
                   <div class="media-embed">
                     <iframe
                       loading="lazy"
-                      src={`https://www.youtube.com/embed/${id}`}
+                      src={
+                        item.type === "youtube"
+                          ? `https://www.youtube.com/embed/${id}`
+                          : `https://open.spotify.com/embed/episode/${spotifyId}`
+                      }
                       title={item.title}
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

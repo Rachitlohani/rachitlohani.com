@@ -1,7 +1,7 @@
 export type MediaItem = {
   title: string;
   url: string;
-  type: "youtube";
+  type: "youtube" | "spotify";
   description: string;
   transcript: string[];
 };
@@ -54,6 +54,13 @@ export const mediaItems: MediaItem[] = [
     url: "https://www.youtube.com/watch?v=_4G9AGBiK5Q",
     type: "youtube",
     description: "In this session from LeanAppSec Summer 2023, a panel of industry leaders discusses how to improve collaboration between security and engineering and how to share responsibility for securing applications. Panel: Stacy Hong (SVP Engineering, Okta), David Tsao (CISO, Instacart), Rachit Lohani (CTO, Paylocity), and Varun Badhwar (CEO, Endor Labs)",
+    transcript: []
+  },
+  {
+    title: "Podcast interview with Rachit Lohani",
+    url: "https://open.spotify.com/episode/5Zrxs6xl6nCrPyIhjiabJN",
+    type: "spotify",
+    description: "Podcast interview featuring Rachit Lohani.",
     transcript: []
   }
 ];

@@ -404,7 +404,7 @@ h2 {
 
 .media-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -430,6 +430,16 @@ h2 {
 
 .media-meta {
   padding: 16px;
+}
+
+.media-meta h2 {
+  font-size: 1.05rem;
+}
+
+@media (max-width: 900px) {
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .muted {
