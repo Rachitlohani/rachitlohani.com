@@ -5,8 +5,8 @@ export const clientDocs: { slug: string; title: string; docId: string }[] = [
     docId: "1q6sObVC7cn527z3ljeE59QKo9-CBUlWnGwP7yL8zMTM"
   },
   {
-    slug: "briefing-2",
-    title: "Client Briefing 2",
+    slug: "ServiceTitan",
+    title: "ServiceTitan: The Trailblazing Segment Creator Revolutionizing the Trades Industry",
     docId: "10jpS11cbFz0vPFpFtFG5xNa1dLDY1A2BgKx5Xd6YnT0"
   },
   {
