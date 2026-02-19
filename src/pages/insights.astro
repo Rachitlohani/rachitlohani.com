@@ -4,6 +4,8 @@ import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import { getCollection } from "astro:content";
 import { mediumPosts } from "../data/medium";
+import { linkedInPosts } from "../data/linkedin";
+import { papers } from "../data/papers";
 
 const title = "Insights — Rachit Lohani";
 const description = "Essays on technology leadership, product delivery, and systems thinking.";
@@ -13,6 +15,7 @@ const sorted = entries.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.
 
 const localPosts = sorted.map((entry) => ({
   type: "local",
+  source: "Local",
   title: entry.data.title,
   description: entry.data.description,
   url: `/insights/${entry.slug}/`,
@@ -23,6 +26,7 @@ const localPosts = sorted.map((entry) => ({
 
 const mediumList = mediumPosts.map((post) => ({
   type: "medium",
+  source: "Medium",
   title: post.title,
   description: "",
   url: post.url,
@@ -31,7 +35,29 @@ const mediumList = mediumPosts.map((post) => ({
   image: post.image ?? ""
 }));
 
-const allPosts = [...localPosts, ...mediumList];
+const linkedInList = linkedInPosts.map((post) => ({
+  type: "linkedin",
+  source: "LinkedIn",
+  title: post.title,
+  description: "",
+  url: post.url,
+  date: "Read on LinkedIn",
+  tags: [],
+  image: post.image ?? ""
+}));
+
+const papersList = papers.map((paper) => ({
+  type: "paper",
+  source: "Seminal papers",
+  title: paper.title,
+  description: "",
+  url: paper.url,
+  date: "PDF",
+  tags: [],
+  image: ""
+}));
+
+const allPosts = [...localPosts, ...mediumList, ...linkedInList, ...papersList];
 const initialCount = 8;
 const initialItems = allPosts.slice(0, initialCount);
 ---
@@ -47,6 +73,13 @@ const initialItems = allPosts.slice(0, initialCount);
       <div class="search-bar">
         <input id="insight-search" type="search" placeholder="Search insights…" aria-label="Search insights" />
       </div>
+      <div class="filter-row">
+        <button class="filter-button is-active" data-source="all" type="button">All</button>
+        <button class="filter-button" data-source="local" type="button">Local</button>
+        <button class="filter-button" data-source="medium" type="button">Medium</button>
+        <button class="filter-button" data-source="linkedin" type="button">LinkedIn</button>
+        <button class="filter-button" data-source="paper" type="button">Seminal papers</button>
+      </div>
 
       {allPosts.length === 0 ? (
         <div class="empty-state">
@@ -57,12 +90,18 @@ const initialItems = allPosts.slice(0, initialCount);
           <ul class="post-list" id="insight-list">
             {initialItems.map((entry) => (
               <li class="post-card">
-                <a href={entry.url} rel={entry.type === "medium" ? "noopener noreferrer" : undefined}>
+                <a
+                  href={entry.url}
+                  target={entry.type === "paper" ? undefined : "_blank"}
+                  rel={entry.type === "paper" ? undefined : "noopener noreferrer"}
+                  data-external={entry.type === "paper" ? "true" : undefined}
+                >
                   <div
                     class={`thumb ${entry.image ? "" : "placeholder"}`}
                     style={entry.image ? `background-image: url('${entry.image}')` : undefined}
                   />
                   <div class="card-body">
+                    <span class="source-tag">{entry.source}</span>
                     <h2>{entry.title}</h2>
                     {entry.description ? <p>{entry.description}</p> : null}
                     <span>{entry.date}</span>
@@ -79,17 +118,37 @@ const initialItems = allPosts.slice(0, initialCount);
     <Footer />
   </div>
   <script type="application/json" id="posts-data" set:html={JSON.stringify(allPosts)}></script>
+  <dialog id="article-modal" class="article-modal">
+    <div class="article-modal__header">
+      <h3 id="article-modal-title">Article</h3>
+      <button id="article-modal-close" class="modal-close" type="button" aria-label="Close dialog">×</button>
+    </div>
+    <div class="article-modal__body">
+      <p class="modal-note">If the embed doesn’t load, use the button below to open the article directly.</p>
+      <iframe id="article-modal-iframe" title="Article preview" loading="lazy"></iframe>
+    </div>
+    <div class="article-modal__footer">
+      <a id="article-modal-open" class="button ghost" href="#" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+    </div>
+  </dialog>
   <script is:inline>
     (() => {
       const dataEl = document.getElementById("posts-data");
       const allPosts = dataEl ? JSON.parse(dataEl.textContent || "[]") : [];
       const list = document.getElementById("insight-list");
       const input = document.getElementById("insight-search");
+      const filters = Array.from(document.querySelectorAll(".filter-button"));
       const sentinel = document.getElementById("insight-sentinel");
       const loadMore = document.getElementById("load-more");
+      const modal = document.getElementById("article-modal");
+      const modalTitle = document.getElementById("article-modal-title");
+      const modalIframe = document.getElementById("article-modal-iframe");
+      const modalOpen = document.getElementById("article-modal-open");
+      const modalClose = document.getElementById("article-modal-close");
       const pageSize = 8;
       let page = 1;
       let filtered = allPosts;
+      let activeSource = "all";
 
       const render = () => {
         if (!list) return;
@@ -98,13 +157,16 @@ const initialItems = allPosts.slice(0, initialCount);
         slice.forEach((entry) => {
           const li = document.createElement("li");
           li.className = "post-card";
-          const rel = entry.type === "medium" ? "noopener noreferrer" : "";
+          const rel = entry.type === "paper" ? "" : "noopener noreferrer";
           li.innerHTML = `
-            <a href="${entry.url}" ${rel ? `rel="${rel}"` : ""}>
+            <a href="${entry.url}" ${rel ? `rel="${rel}"` : ""} ${
+              entry.type === "paper" ? "" : 'target="_blank"'
+            } ${entry.type === "paper" ? 'data-external="true"' : ""}>
               <div class="thumb ${entry.image ? "" : "placeholder"}" ${
                 entry.image ? `style="background-image:url('${entry.image}')"` : ""
               }></div>
               <div class="card-body">
+                <span class="source-tag">${entry.source}</span>
                 <h2>${entry.title}</h2>
                 ${entry.description ? `<p>${entry.description}</p>` : ""}
                 <span>${entry.date}</span>
@@ -121,19 +183,66 @@ const initialItems = allPosts.slice(0, initialCount);
         }
       };
 
-      if (input) {
-        input.addEventListener("input", (event) => {
-          const query = event.target.value.toLowerCase().trim();
-          filtered = allPosts.filter((entry) => {
-            const title = entry.title.toLowerCase();
-            const description = (entry.description || "").toLowerCase();
-            const tags = (entry.tags || []).join(" ").toLowerCase();
-            return title.includes(query) || description.includes(query) || tags.includes(query);
-          });
-          page = 1;
-          render();
+      const openModal = (title, url) => {
+        if (!modal || !modalIframe || !modalOpen || !modalTitle) return;
+        modalTitle.textContent = title || "Article";
+        modalIframe.src = url;
+        modalOpen.href = url;
+        if (typeof modal.showModal === "function") {
+          modal.showModal();
+        } else {
+          window.open(url, "_blank", "noopener,noreferrer");
+        }
+      };
+
+      const closeModal = () => {
+        if (!modal || !modalIframe) return;
+        modalIframe.src = "";
+        modal.close();
+      };
+
+      if (modalClose) {
+        modalClose.addEventListener("click", () => closeModal());
+      }
+
+      if (modal) {
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            closeModal();
+          }
         });
       }
+
+      const applyFilters = () => {
+        const query = input ? input.value.toLowerCase().trim() : "";
+        filtered = allPosts.filter((entry) => {
+          const title = entry.title.toLowerCase();
+          const description = (entry.description || "").toLowerCase();
+          const tags = (entry.tags || []).join(" ").toLowerCase();
+          const source = entry.source.toLowerCase();
+          const sourceMatch = activeSource === "all" ? true : entry.type === activeSource;
+          const textMatch =
+            title.includes(query) || description.includes(query) || tags.includes(query) || source.includes(query);
+          return sourceMatch && textMatch;
+        });
+        page = 1;
+        render();
+      };
+
+      if (input) {
+        input.addEventListener("input", () => {
+          applyFilters();
+        });
+      }
+
+      filters.forEach((button) => {
+        button.addEventListener("click", () => {
+          filters.forEach((btn) => btn.classList.remove("is-active"));
+          button.classList.add("is-active");
+          activeSource = button.dataset.source || "all";
+          applyFilters();
+        });
+      });
 
       if (loadMore) {
         loadMore.addEventListener("click", () => {
@@ -151,6 +260,14 @@ const initialItems = allPosts.slice(0, initialCount);
         }, { rootMargin: "200px" });
         observer.observe(sentinel);
       }
+
+      document.addEventListener("click", (event) => {
+        const link = event.target.closest('a[data-external=\"true\"]');
+        if (!link) return;
+        event.preventDefault();
+        const title = link.querySelector("h2")?.textContent || "Article";
+        openModal(title, link.href);
+      });
 
       render();
     })();
