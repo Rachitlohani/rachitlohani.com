@@ -19,7 +19,7 @@
 body {
   margin: 0;
   font-family: "Space Grotesk", system-ui, sans-serif;
-  color: var(--ink);
+  color: var(--muted);
   background: radial-gradient(circle at 15% 20%, #e6f6ff, transparent 45%),
     radial-gradient(circle at 85% 15%, #fff1e6, transparent 40%),
     linear-gradient(180deg, #f8fafc 0%, #ffffff 55%, #f1f5f9 100%);
@@ -92,6 +92,7 @@ h1 {
   font-family: "Fraunces", serif;
   font-size: clamp(2.4rem, 4vw, 3.4rem);
   margin: 0 0 16px;
+  color: var(--ink);
 }
 
 .insights-title {
@@ -101,6 +102,18 @@ h1 {
 h2 {
   font-family: "Fraunces", serif;
   font-size: 1.8rem;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+h3 {
+  color: var(--ink);
+}
+
+.subhead {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--muted);
   margin: 0 0 12px;
 }
 
@@ -231,6 +244,10 @@ h2 {
 .bullets {
   padding-left: 20px;
   color: var(--muted);
+}
+
+.bullets li {
+  margin-bottom: 12px;
 }
 
 .footer {

@@ -71,7 +71,7 @@ const webPageSchema = {
       gtag('config', 'G-RL2TZF9T21');
     </script>
     {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
-    <script type="application/ld+json">{JSON.stringify([jsonLd, webSiteSchema, webPageSchema])}</script>
+    <script type="application/ld+json" set:html={JSON.stringify([jsonLd, webSiteSchema, webPageSchema])}></script>
   </head>
   <body>
     <slot />
