@@ -10,8 +10,15 @@ const description =
 const personSchema = {
   "@context": "http://schema.org",
   "@type": "Person",
+  "@id": "https://rachitlohani.com/#rachit-lohani",
   name: "Rachit Lohani",
   url: "https://rachitlohani.com",
+  image: [
+    "https://rachitlohani.com/images/personal/rachit-speaking.jpg",
+    "https://rachitlohani.com/images/personal/Women-Leadership-Conference-SCH-17.jpg"
+  ],
+  description:
+    "Technology executive focused on building and scaling SaaS products and global engineering organizations.",
   sameAs: [
     "https://www.linkedin.com/in/rachitlohani",
     "https://www.youtube.com/@RachitLohani",
@@ -38,7 +45,13 @@ const personSchema = {
             scalable systems, shipping decisive products, and mentoring leaders.
           </p>
           <div class="cta-row">
-            <a class="button" href="/contact">Work with me</a>
+            <a
+              href="https://koalendar.com/e/meet-with-rachit"
+              data-koalendar-widget
+              class="button ghost"
+            >
+              Lets Talk!
+            </a>
             <a class="button ghost" href="/about">Read my story</a>
           </div>
         </div>

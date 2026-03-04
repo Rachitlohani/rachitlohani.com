@@ -1,4 +1,11 @@
-export const papers: { title: string; url: string }[] = [
+export type Paper = { title: string; url: string; tags?: string[] };
+
+export const papers: Paper[] = [
+  {
+    title: "Endogenous Wage Distribution",
+    url: "/papers/Endogenous Wage Distribution.pdf",
+    tags: ["ai"]
+  },
   { title: "Google File System (GFS)", url: "/papers/gfs-sosp2003.pdf" },
   { title: "MapReduce", url: "/papers/mapreduce-osdi04.pdf" },
   { title: "Dynamo: Amazon’s Highly Available Key-Value Store", url: "/papers/amazon-dynamo-sosp2007.pdf" },

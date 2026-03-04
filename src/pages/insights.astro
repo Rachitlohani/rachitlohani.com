@@ -31,7 +31,7 @@ const mediumList = mediumPosts.map((post) => ({
   description: "",
   url: post.url,
   date: "Read on Medium",
-  tags: [],
+  tags: /ai/i.test(post.title) ? ["ai"] : [],
   image: post.image ?? ""
 }));
 
@@ -42,7 +42,7 @@ const linkedInList = linkedInPosts.map((post) => ({
   description: "",
   url: post.url,
   date: "Read on LinkedIn",
-  tags: [],
+  tags: /ai/i.test(post.title) ? ["ai"] : [],
   image: post.image ?? ""
 }));
 
@@ -53,7 +53,7 @@ const papersList = papers.map((paper) => ({
   description: "",
   url: paper.url,
   date: "PDF",
-  tags: [],
+  tags: paper.tags ?? (/ai/i.test(paper.title) ? ["ai"] : []),
   image: ""
 }));
 
@@ -79,6 +79,7 @@ const initialItems = allPosts.slice(0, initialCount);
         <button class="filter-button" data-source="medium" type="button">Medium</button>
         <button class="filter-button" data-source="linkedin" type="button">LinkedIn</button>
         <button class="filter-button" data-source="paper" type="button">Seminal papers</button>
+        <button class="filter-button" data-tag="ai" type="button">AI</button>
       </div>
 
       {allPosts.length === 0 ? (
@@ -149,6 +150,7 @@ const initialItems = allPosts.slice(0, initialCount);
       let page = 1;
       let filtered = allPosts;
       let activeSource = "all";
+      let activeTag = "all";
 
       const render = () => {
         if (!list) return;
@@ -221,10 +223,18 @@ const initialItems = allPosts.slice(0, initialCount);
           const tags = (entry.tags || []).join(" ").toLowerCase();
           const source = entry.source.toLowerCase();
           const sourceMatch = activeSource === "all" ? true : entry.type === activeSource;
+          const tagMatch = activeTag === "all" ? true : (entry.tags || []).includes(activeTag);
           const textMatch =
             title.includes(query) || description.includes(query) || tags.includes(query) || source.includes(query);
-          return sourceMatch && textMatch;
+          return sourceMatch && tagMatch && textMatch;
         });
+        if (activeTag === "ai") {
+          filtered.sort((a, b) => {
+            if (a.title === "Endogenous Wage Distribution") return -1;
+            if (b.title === "Endogenous Wage Distribution") return 1;
+            return a.title.localeCompare(b.title);
+          });
+        }
         page = 1;
         render();
       };
@@ -237,9 +247,25 @@ const initialItems = allPosts.slice(0, initialCount);
 
       filters.forEach((button) => {
         button.addEventListener("click", () => {
-          filters.forEach((btn) => btn.classList.remove("is-active"));
-          button.classList.add("is-active");
-          activeSource = button.dataset.source || "all";
+          if (button.dataset.source) {
+            filters
+              .filter((btn) => btn.dataset.source)
+              .forEach((btn) => btn.classList.remove("is-active"));
+            button.classList.add("is-active");
+            activeSource = button.dataset.source || "all";
+          }
+          if (button.dataset.tag) {
+            if (activeTag === button.dataset.tag) {
+              activeTag = "all";
+              button.classList.remove("is-active");
+            } else {
+              filters
+                .filter((btn) => btn.dataset.tag)
+                .forEach((btn) => btn.classList.remove("is-active"));
+              button.classList.add("is-active");
+              activeTag = button.dataset.tag || "all";
+            }
+          }
           applyFilters();
         });
       });

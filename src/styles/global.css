@@ -148,9 +148,14 @@ h3 {
 }
 
 .button.ghost {
-  background: transparent;
-  border-color: var(--border);
+  background: #e0f2fe;
+  border-color: #bae6fd;
   color: var(--ink);
+}
+
+.button.ghost:hover {
+  background: #bae6fd;
+  border-color: #7dd3fc;
 }
 
 .hero-card {

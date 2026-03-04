@@ -18,9 +18,16 @@ const jsonLd =
   ({
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://rachitlohani.com/#rachit-lohani",
     name: "Rachit Lohani",
     jobTitle: "Technology Executive and Advisor",
+    description:
+      "Technology executive focused on building and scaling products, systems, and organizations.",
     url: site,
+    image: [
+      "https://rachitlohani.com/images/personal/rachit-speaking.jpg",
+      "https://rachitlohani.com/images/personal/Women-Leadership-Conference-SCH-17.jpg"
+    ],
     sameAs: [
       "https://www.linkedin.com/in/rachitlohani/",
       "https://www.youtube.com/@RachitLohani",
@@ -62,6 +69,11 @@ const webPageSchema = {
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <script>
+      window.Koalendar = window.Koalendar || function () {(Koalendar.props = Koalendar.props || []).push(arguments);};
+    </script>
+    <script async src="https://koalendar.com/assets/widget.js"></script>
+    <script>Koalendar("init");</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RL2TZF9T21"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
