@@ -70,10 +70,20 @@ const webPageSchema = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <script>
-      window.Koalendar = window.Koalendar || function () {(Koalendar.props = Koalendar.props || []).push(arguments);};
+      window.Koalendar = window.Koalendar || function(){(Koalendar.props = Koalendar.props || []).push(arguments)};
     </script>
     <script async src="https://koalendar.com/assets/widget.js"></script>
-    <script>Koalendar("init");</script>
+    <script>
+      Koalendar('widget', {
+        "url": "https://koalendar.com/e/meet-with-rachit",
+        "text": "Schedule a meeting",
+        "shape": "rounded-full",
+        "backgroundColor": "#5145CD",
+        "textColor": "#FFFFFF",
+        "position": "bottom-right",
+        "icon": "calendar"
+      });
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RL2TZF9T21"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
