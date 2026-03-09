@@ -1,0 +1,202 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { books } from "../data/books";
+import { scrapedTopBooks } from "../data/books-top100";
+
+const title = "Books — Rachit Lohani";
+const description = "A curated library of books that shaped how Rachit Lohani builds and leads.";
+const allBooks = [...books, ...scrapedTopBooks].filter(
+  (book, index, arr) => arr.findIndex((item) => item.title.toLowerCase() === book.title.toLowerCase()) === index
+);
+const pinnedTags = ["management", "product", "tech", "leadership", "system", "engineering", "self-development", "finance", "AI"];
+const discoveredTags = [...new Set(allBooks.flatMap((book) => book.tags))];
+const extraTags = discoveredTags.filter((tag) => !pinnedTags.includes(tag)).sort((a, b) => a.localeCompare(b));
+const allTags = [...pinnedTags, ...extraTags];
+---
+<BaseLayout title={title} description={description}>
+  <div class="page">
+    <Nav />
+    <main class="content">
+      <header class="content-header">
+        <p class="eyebrow">Books</p>
+        <h1>Books that shaped how I think, build, and lead.</h1>
+        <p class="lead">
+          A personal library of books I have read, with star ratings, deeper reflections, and key takeaways.
+        </p>
+      </header>
+
+      {allBooks.length === 0 ? (
+        <div class="empty-state">
+          <p>No books added yet. Share Amazon links and I will populate this library.</p>
+        </div>
+      ) : (
+        <>
+          <div class="search-bar">
+            <input id="book-search" type="search" placeholder="Search books..." aria-label="Search books" />
+          </div>
+          <div class="book-toolbar">
+            <div class="filter-row">
+              <button class="filter-button is-active" data-tag="all" type="button">All</button>
+              {allTags.map((tag) => (
+                <button class="filter-button" data-tag={tag} type="button">{tag}</button>
+              ))}
+            </div>
+            <p id="book-count" class="muted"></p>
+          </div>
+          <ul class="book-grid" id="book-grid">
+            {allBooks.map((book) => (
+              <li class="book-card" data-tags={book.tags.join(",")}>
+                <button
+                  class="book-trigger"
+                  type="button"
+                  data-book={JSON.stringify(book)}
+                  aria-label={`Open details for ${book.title}`}
+                >
+                  <div class="book-cover-shell">
+                    {book.specialTag ? <span class="book-special-tag">{book.specialTag}</span> : null}
+                    <img src={book.coverImage} alt={`${book.title} cover`} loading="lazy" />
+                  </div>
+                  <div class="book-meta">
+                    <h2>{book.title}</h2>
+                    <p>{book.author}</p>
+                  </div>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </main>
+    <Footer />
+  </div>
+
+  <dialog id="book-modal" class="article-modal">
+    <div class="article-modal__header">
+      <h3 id="book-title">Book</h3>
+      <button id="book-modal-close" class="modal-close" type="button" aria-label="Close dialog">×</button>
+    </div>
+    <div class="article-modal__body book-modal-body">
+      <div class="book-modal-cover-wrap">
+        <img id="book-cover" class="book-modal-cover" src="" alt="" loading="lazy" />
+      </div>
+      <div>
+        <p id="book-author" class="book-author"></p>
+        <p id="book-rating"><strong>Rating:</strong> </p>
+        <h3>Review</h3>
+        <p id="book-review"></p>
+        <h3>Key takeaways</h3>
+        <ul id="book-takeaways" class="bullets"></ul>
+      </div>
+    </div>
+    <div class="article-modal__footer">
+      <a id="book-amazon-link" class="button ghost" href="#" target="_blank" rel="noopener noreferrer">
+        View on Amazon
+      </a>
+    </div>
+  </dialog>
+
+  <script is:inline>
+    (() => {
+      const modal = document.getElementById("book-modal");
+      const closeButton = document.getElementById("book-modal-close");
+      const title = document.getElementById("book-title");
+      const author = document.getElementById("book-author");
+      const rating = document.getElementById("book-rating");
+      const review = document.getElementById("book-review");
+      const takeaways = document.getElementById("book-takeaways");
+      const amazonLink = document.getElementById("book-amazon-link");
+      const cover = document.getElementById("book-cover");
+      const filterButtons = Array.from(document.querySelectorAll(".filter-button[data-tag]"));
+      const cards = Array.from(document.querySelectorAll(".book-card"));
+      const count = document.getElementById("book-count");
+      const searchInput = document.getElementById("book-search");
+      let activeTag = "all";
+
+      const closeModal = () => {
+        if (!modal) return;
+        modal.close();
+      };
+
+      const renderCount = () => {
+        if (!count) return;
+        const visible = cards.filter((card) => card.style.display !== "none").length;
+        count.textContent = `${visible} ${visible === 1 ? "book" : "books"} shown`;
+      };
+
+      const applyFilters = () => {
+        const query = searchInput && "value" in searchInput ? searchInput.value.toLowerCase().trim() : "";
+        cards.forEach((card) => {
+          const tags = (card.getAttribute("data-tags") || "").split(",").filter(Boolean);
+          const button = card.querySelector(".book-trigger");
+          const raw = button ? button.getAttribute("data-book") : null;
+          const book = raw ? JSON.parse(raw) : null;
+          const text = book
+            ? `${book.title} ${book.author} ${(book.tags || []).join(" ")} ${(book.review || "")}`.toLowerCase()
+            : "";
+          const tagMatch = activeTag === "all" ? true : tags.includes(activeTag);
+          const queryMatch = query ? text.includes(query) : true;
+          const show = tagMatch && queryMatch;
+          card.style.display = show ? "" : "none";
+        });
+        renderCount();
+      };
+
+      const renderStars = (value) => {
+        const normalized = Math.max(0, Math.min(5, Number(value) || 0));
+        const rounded = Math.round(normalized);
+        return "★".repeat(rounded) + "☆".repeat(5 - rounded);
+      };
+
+      document.querySelectorAll(".book-trigger").forEach((button) => {
+        button.addEventListener("click", () => {
+          const raw = button.getAttribute("data-book");
+          if (!raw || !title || !author || !rating || !review || !takeaways || !amazonLink || !modal || !cover) return;
+          const book = JSON.parse(raw);
+          title.textContent = book.title;
+          author.textContent = book.author;
+          rating.innerHTML = `<strong>Rating:</strong> <span class=\"star-rating\">${renderStars(book.rating)}</span>`;
+          review.textContent = book.review;
+          cover.src = book.coverImage;
+          cover.alt = `${book.title} cover`;
+          amazonLink.href = book.amazonUrl;
+          takeaways.innerHTML = "";
+          (book.takeaways || []).forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            takeaways.appendChild(li);
+          });
+          if (typeof modal.showModal === "function") {
+            modal.showModal();
+          }
+        });
+      });
+
+      if (closeButton) {
+        closeButton.addEventListener("click", closeModal);
+      }
+
+      if (modal) {
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) closeModal();
+        });
+      }
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach((other) => other.classList.remove("is-active"));
+          button.classList.add("is-active");
+          activeTag = button.getAttribute("data-tag") || "all";
+          applyFilters();
+        });
+      });
+
+      if (searchInput && "addEventListener" in searchInput) {
+        searchInput.addEventListener("input", applyFilters);
+      }
+
+      applyFilters();
+    })();
+  </script>
+</BaseLayout>

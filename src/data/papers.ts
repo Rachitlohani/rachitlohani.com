@@ -2,8 +2,9 @@ export type Paper = { title: string; url: string; tags?: string[] };
 
 export const papers: Paper[] = [
   {
-    title: "Endogenous Wage Distribution",
-    url: "/papers/Endogenous Wage Distribution.pdf",
+    title:
+      "Artificial Intelligence as a Structural General-Purpose Technology: Endogenous Wage Distribution, Infrastructure Constraints, and Institutional Realignment",
+    url: "/papers/endogenous-wage-distribution/",
     tags: ["ai"]
   },
   { title: "Google File System (GFS)", url: "/papers/gfs-sosp2003.pdf" },

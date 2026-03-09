@@ -512,6 +512,114 @@ h3 {
   object-fit: cover;
 }
 
+.book-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.book-card {
+  margin: 0;
+}
+
+.book-trigger {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: white;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.book-trigger img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+.book-cover-shell {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.book-special-tag {
+  position: absolute;
+  top: 12px;
+  left: -34px;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7c2d12;
+  background: linear-gradient(180deg, #fdba74 0%, #fb923c 100%);
+  border: 1px solid #ea580c;
+  padding: 3px 36px;
+  transform: rotate(-35deg);
+  transform-origin: center;
+  box-shadow: 0 10px 20px rgba(249, 115, 22, 0.35);
+  pointer-events: none;
+}
+
+.book-meta h2 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.book-meta p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.book-author {
+  margin-top: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.star-rating {
+  color: #f59e0b;
+  letter-spacing: 0.06em;
+  font-size: 1.02rem;
+}
+
+.book-modal-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  align-items: start;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.book-modal-cover-wrap {
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, #e0f2fe 0%, #f8fafc 55%, #fff1e6 100%);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+}
+
+.book-modal-cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+}
+
 .about-photo {
   width: 100%;
   max-width: 420px;
@@ -584,5 +692,14 @@ h3 {
 
   .post-list {
     grid-template-columns: 1fr;
+  }
+
+  .book-modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  .book-modal-cover-wrap {
+    max-width: 240px;
+    margin: 0 auto;
   }
 }

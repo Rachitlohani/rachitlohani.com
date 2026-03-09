@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Artificial Intelligence as a Structural General‑Purpose Technology — Rachit Lohani";
+const description = "Endogenous wage distribution, infrastructure constraints, and institutional realignment.";
+const pdfUrl = "https://rachitlohani.com/papers/Endogenous%20Wage%20Distribution.pdf";
+---
+<BaseLayout title={title} description={description}>
+  <head>
+    <meta
+      name="citation_title"
+      content="Artificial Intelligence as a Structural General-Purpose Technology: Endogenous Wage Distribution, Infrastructure Constraints, and Institutional Realignment"
+    />
+    <meta name="citation_author" content="Rachit Lohani" />
+    <meta name="citation_publication_date" content="2026" />
+    <meta name="citation_pdf_url" content="https://rachitlohani.com/papers/Endogenous_Wage_Distribution.pdf" />
+  </head>
+  <div class="page">
+    <Nav />
+    <main class="content">
+      <header class="content-header">
+        <p class="eyebrow">Paper</p>
+        <h1>Artificial Intelligence as a Structural General‑Purpose Technology</h1>
+        <p class="lead">Endogenous wage distribution, infrastructure constraints, and institutional realignment.</p>
+        <a class="text-link" href={pdfUrl} target="_blank" rel="noopener noreferrer">Download PDF</a>
+      </header>
+      <section class="content-block">
+        <div class="media-card">
+          <div class="media-embed">
+            <iframe src={pdfUrl} title="Endogenous Wage Distribution" loading="lazy"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

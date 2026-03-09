@@ -82,5 +82,21 @@ export const linkedInPosts: { title: string; url: string; image?: string }[] = [
   {
     title: "How I Use Claude Code: Executive Lessons from E2open & Paylocity",
     url: "https://www.linkedin.com/pulse/how-i-use-claude-code-executive-lessons-from-e2open-paylocity-lohani-zgn2c/"
+  },
+  {
+    title: "Using the 5S Framework to Decide What to Build in a B2B SaaS Company",
+    url: "https://www.linkedin.com/pulse/using-5s-framework-decide-what-build-b2b-saas-company-rachit-lohani-htqsc/"
+  },
+  {
+    title: "Rebuilding GPT from First Principles: Why Every Leader Should Care",
+    url: "https://www.linkedin.com/pulse/rebuilding-gpt-from-first-principles-why-every-leader-rachit-lohani-jo6yc/"
+  },
+  {
+    title: "The 5S Framework: A Practical Operating System for Building Enduring Companies",
+    url: "https://www.linkedin.com/pulse/5s-framework-practical-operating-system-building-enduring-lohani-4185c/"
+  },
+  {
+    title: "SaaS Returning to Its Original Promise",
+    url: "https://www.linkedin.com/pulse/saas-returning-its-original-promise-rachit-lohani-wwc5c"
   }
 ];
