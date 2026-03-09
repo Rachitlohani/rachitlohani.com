@@ -22,9 +22,10 @@ const allTags = [...pinnedTags, ...extraTags];
       <header class="content-header">
         <p class="eyebrow">Books</p>
         <h1>Books that shaped how I think, build, and lead.</h1>
-        <p class="lead">
-          A personal library of books I have read, with star ratings, deeper reflections, and key takeaways.
-        </p>
+        <button id="reading-system-open" class="button reading-system-button" type="button">
+          My Reading System
+          <span aria-hidden="true">↗</span>
+        </button>
       </header>
 
       {allBooks.length === 0 ? (
@@ -97,10 +98,160 @@ const allTags = [...pinnedTags, ...extraTags];
     </div>
   </dialog>
 
+  <dialog id="reading-system-modal" class="article-modal">
+    <div class="article-modal__header">
+      <h3>The Lohani Reading System</h3>
+      <button id="reading-system-close" class="modal-close" type="button" aria-label="Close dialog">×</button>
+    </div>
+    <div class="article-modal__body">
+      <p>
+        People often ask why my reading list spans philosophy, technology, religion, mathematics, product management,
+        and leadership.
+      </p>
+      <p>It is not accidental.</p>
+      <p>
+        Over time I realized that most executive problems are not solved by domain knowledge alone. They require
+        <strong>clear thinking across multiple mental models</strong>. My reading therefore follows a deliberate
+        structure.
+      </p>
+      <p>I think of it as a stack.</p>
+
+      <h3>1. Philosophy — Building the Operating System for Judgment</h3>
+      <p>
+        Books like <em>Meditations</em>, <em>Bhagavad Gita</em>, <em>Man&apos;s Search for Meaning</em>, and
+        <em>Beyond Good and Evil</em> shape how I think about purpose, responsibility, and human nature.
+      </p>
+      <p>
+        Leadership eventually confronts questions that cannot be answered with spreadsheets. What matters? What is the
+        right thing to do? How should power be used?
+      </p>
+      <p>
+        Philosophy sharpens judgment and anchors decision-making in principles rather than convenience. Without it,
+        intelligence often becomes rationalization.
+      </p>
+
+      <h3>2. Mental Models — Learning How to Think</h3>
+      <p>
+        Books like <em>How to Think Effectively</em>, <em>Algorithms to Live By</em>, <em>The Joy of X</em>, and
+        <em>Calculus</em> train the mind to reason with clarity.
+      </p>
+      <p>These disciplines develop structured thinking:</p>
+      <ul class="bullets">
+        <li>abstraction</li>
+        <li>probabilistic reasoning</li>
+        <li>tradeoff analysis</li>
+        <li>system optimization</li>
+      </ul>
+      <p>
+        Executives constantly make decisions under uncertainty. The ability to reason from first principles is a
+        durable advantage.
+      </p>
+
+      <h3>3. Technology and Systems — Understanding How the World Actually Works</h3>
+      <p>
+        Books like <em>Designing Data-Intensive Applications</em>, <em>Machine Learning Design Patterns</em>,
+        <em>Deep Learning Foundations</em>, and <em>Why Machines Learn</em> explain the infrastructure of the modern
+        economy.
+      </p>
+      <p>Software is no longer a tool used by businesses. It <strong>is the business</strong>.</p>
+      <p>
+        Leaders who understand the architecture of technology make better strategic decisions about platforms, AI
+        adoption, and product strategy.
+      </p>
+
+      <h3>4. Product and Company Building — Turning Ideas into Reality</h3>
+      <p>
+        Books like <em>INSPIRED</em>, <em>Empowered</em>, <em>Lean Product Playbook</em>,
+        <em>Crossing the Chasm</em>, and <em>The Cold Start Problem</em> focus on building things that people actually
+        use.
+      </p>
+      <p>Execution matters.</p>
+      <p>
+        Ideas are cheap. Products succeed when teams understand customers deeply and iterate quickly. These books are
+        about <strong>creating value in the real world</strong>.
+      </p>
+
+      <h3>5. Leadership and Organizations — Scaling Impact</h3>
+      <p>
+        Books like <em>Amp It Up</em>, <em>The Manager&apos;s Path</em>, <em>The Hard Thing About Hard Things</em>, and
+        <em>First Break All the Rules</em> explore how organizations actually perform.
+      </p>
+      <p>
+        At scale, outcomes are determined less by individual brilliance and more by
+        <strong>organizational design</strong>.
+      </p>
+      <p>
+        Leadership becomes the discipline of aligning people, incentives, and systems around a common mission.
+      </p>
+
+      <h3>Why This Stack Matters</h3>
+      <p>Each layer reinforces the others.</p>
+      <p>
+        Philosophy improves judgment. Mental models improve reasoning. Technology understanding improves strategy.
+        Product thinking creates value. Leadership scales that value.
+      </p>
+      <p>The goal is not to read more books.</p>
+      <p>The goal is to <strong>build a thinking framework that compounds over time</strong>.</p>
+
+      <h3>Visual Map of the Lohani Reading System</h3>
+      <pre><code>                    Leadership
+            (Scaling organizations & people)
+                      ▲
+                      │
+               Product & Markets
+        (Building things customers love)
+                      ▲
+                      │
+               Technology Systems
+        (Software, AI, data infrastructure)
+                      ▲
+                      │
+                 Mental Models
+      (Math, reasoning, decision science)
+                      ▲
+                      │
+                  Philosophy
+      (Purpose, ethics, human nature)</code></pre>
+
+      <h3>Another Way to Frame It</h3>
+      <pre><code>Wisdom
+↑
+Philosophy
+↑
+Clear Thinking
+↑
+Mental Models
+↑
+Understanding the Machine
+↑
+Technology Systems
+↑
+Building Useful Things
+↑
+Product & Markets
+↑
+Leading People
+↑
+Leadership</code></pre>
+
+      <p>
+        This structure subtly communicates something powerful: <strong>The best builders are interdisciplinary
+        thinkers.</strong>
+      </p>
+      <p>
+        Technology leaders who understand philosophy make better decisions. Philosophers who understand systems build
+        better organizations. The real advantage comes from integrating both.
+      </p>
+    </div>
+  </dialog>
+
   <script is:inline>
     (() => {
       const modal = document.getElementById("book-modal");
       const closeButton = document.getElementById("book-modal-close");
+      const readingSystemModal = document.getElementById("reading-system-modal");
+      const readingSystemOpen = document.getElementById("reading-system-open");
+      const readingSystemClose = document.getElementById("reading-system-close");
       const title = document.getElementById("book-title");
       const author = document.getElementById("book-author");
       const rating = document.getElementById("book-rating");
@@ -183,6 +334,24 @@ const allTags = [...pinnedTags, ...extraTags];
         });
       }
 
+      if (readingSystemOpen && readingSystemModal && "showModal" in readingSystemModal) {
+        readingSystemOpen.addEventListener("click", () => {
+          readingSystemModal.showModal();
+        });
+      }
+
+      if (readingSystemClose && readingSystemModal) {
+        readingSystemClose.addEventListener("click", () => {
+          readingSystemModal.close();
+        });
+      }
+
+      if (readingSystemModal) {
+        readingSystemModal.addEventListener("click", (event) => {
+          if (event.target === readingSystemModal) readingSystemModal.close();
+        });
+      }
+
       filterButtons.forEach((button) => {
         button.addEventListener("click", () => {
           filterButtons.forEach((other) => other.classList.remove("is-active"));
@@ -199,4 +368,41 @@ const allTags = [...pinnedTags, ...extraTags];
       applyFilters();
     })();
   </script>
+
+  <style>
+    .reading-system-button {
+      cursor: pointer;
+      gap: 8px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      animation: reading-system-pulse 2.2s ease-in-out infinite;
+    }
+
+    .reading-system-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.28);
+      animation: none;
+    }
+
+    .reading-system-button:focus-visible {
+      outline: 3px solid #7dd3fc;
+      outline-offset: 2px;
+      animation: none;
+    }
+
+    .reading-system-button span {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    @keyframes reading-system-pulse {
+      0%, 100% {
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+      }
+      50% {
+        box-shadow: 0 10px 26px rgba(14, 116, 144, 0.26);
+      }
+    }
+  </style>
 </BaseLayout>

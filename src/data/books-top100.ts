@@ -1192,34 +1192,6 @@ export const scrapedTopBooks: Book[] = [
     ]
   },
   {
-    title: "Rosalina's Storybook",
-    author: "Nintendo",
-    amazonUrl: "https://www.amazon.com/Rosalinas-Storybook-Nintendo/dp/1506754902/ref=zg_bs_g_5_d_sccl_25/138-9796918-4214253?psc=1",
-    coverImage: "/images/books/top100/rosalina-s-storybook-1506754902.jpg",
-    tags: ["tech", "engineering", "AI"],
-    rating: 4.7,
-    review: "A current Amazon technology bestseller that helps map where engineering, AI, software architecture, and technical craft are moving in practice.",
-    takeaways: [
-      "Practical patterns from current market-recognized books.",
-      "Useful for strategic decisions, execution, and leadership craft.",
-      "A strong source to compare frameworks across domains."
-    ]
-  },
-  {
-    title: "The ChatGPT Millionaire: Making Money Online has never been this EASY (How to make money with AI)",
-    author: "Neil Dagger",
-    amazonUrl: "https://www.amazon.com/ChatGPT-Millionaire-Making-Money-Online/dp/B0BSJ9XMQ8/ref=zg_bs_g_5_d_sccl_26/138-9796918-4214253?psc=1",
-    coverImage: "/images/books/top100/the-chatgpt-millionaire-making-money-online-has-never-been-this-easy-how-to-make-b0bsj9xmq8.jpg",
-    tags: ["tech", "engineering", "AI"],
-    rating: 4.1,
-    review: "A current Amazon technology bestseller that helps map where engineering, AI, software architecture, and technical craft are moving in practice.",
-    takeaways: [
-      "Practical patterns from current market-recognized books.",
-      "Useful for strategic decisions, execution, and leadership craft.",
-      "A strong source to compare frameworks across domains."
-    ]
-  },
-  {
     title: "Empire of AI: Dreams and Nightmares in Sam Altman's OpenAI",
     author: "Karen Hao",
     amazonUrl: "https://www.amazon.com/Empire-AI-Dreams-Nightmares-Altmans/dp/0593657500/ref=zg_bs_g_5_d_sccl_27/138-9796918-4214253?psc=1",
