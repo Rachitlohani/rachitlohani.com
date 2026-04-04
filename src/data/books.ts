@@ -34,11 +34,11 @@ export const books: Book[] = [
     tags: ["engineering", "system", "philosophy"],
     rating: 4.5,
     review:
-      "I like books that collapse distance between computation and daily life. This one does it elegantly: scheduling, search, optionality, and stopping rules become moral as much as mathematical decisions. It shaped how I think about tradeoffs in product roadmaps and personal discipline.",
+      "This book connects computer science with everyday decision-making. Many problems humans face, scheduling tasks, searching for opportunities, balancing exploration vs exploitation, are the same problems computer scientists solve with algorithms. The biggest takeaway for me is that good decision-making can often be formalized. Instead of relying purely on instinct, leaders can apply algorithmic thinking to choices around hiring, resource allocation, and prioritization.",
     takeaways: [
-      "Optimization always depends on constraints and context.",
-      "Good heuristics beat perfect models in uncertain systems.",
-      "Decision quality improves when stopping rules are explicit."
+      "Many life decisions mirror optimization problems.",
+      "Algorithms help manage uncertainty and tradeoffs.",
+      "Decision quality improves when intuition is structured."
     ]
   },
   {
@@ -49,11 +49,11 @@ export const books: Book[] = [
     tags: ["self-development", "philosophy", "finance"],
     rating: 4.7,
     review:
-      "This book reads like a modern operating manual for building both wealth and inner clarity. Naval links economics, philosophy, and personal sovereignty through one core idea: leverage. Capital and labor matter, but code and media create asymmetric scale in the digital era. The deeper lesson for me is that judgment compounds faster than information. In a noisy world, clear thinking and ownership are the real strategic assets.",
+      "This book is essentially a collection of Naval's mental models about wealth, judgment, and happiness. Naval distinguishes wealth from status. Wealth is assets that produce value while you sleep; status is a social ranking game. Another powerful idea is leverage, especially code and media leverage that scale without marginal cost. The deeper lesson is to build systems that compound rather than trade time for money.",
     takeaways: [
-      "Build leverage through ownership, code, and distribution.",
-      "Specific knowledge compounds when paired with long-term consistency.",
-      "True wealth is freedom of time, not visible status."
+      "Wealth comes from ownership and leverage, not effort alone.",
+      "Clear thinking beats raw intelligence.",
+      "Build systems that scale without you."
     ]
   },
   {
@@ -64,11 +64,11 @@ export const books: Book[] = [
     tags: ["management", "leadership", "operations"],
     rating: 4.4,
     review:
-      "Many companies underperform less because of weak strategy and more because of low intensity. Slootman is direct about what moves performance: tighter focus, higher talent density, and uncompromising operational rigor. I value this because momentum is cultural. When standards rise, execution accelerates; when standards slip, bureaucracy expands quickly.",
+      "Many companies underperform not because they lack strategy, but because they lack intensity. Frank Slootman's thesis is simple: execution improves dramatically when leaders raise the performance bar across the organization. High standards create energy. Low standards create bureaucracy. He argues that leaders must constantly sharpen focus, talent density, and operational rigor. One of the most powerful ideas in the book is that momentum is cultural. When organizations begin executing well, it creates a feedback loop of confidence and performance. But the reverse is also true. Slow execution becomes normalized surprisingly quickly.",
     takeaways: [
-      "High performance requires clarity, speed, and accountability together.",
-      "Talent density sets the long-term ceiling of execution quality.",
-      "Momentum compounds when leadership continuously raises standards."
+      "High performance requires clarity, speed, and accountability.",
+      "Talent density determines the ceiling of execution.",
+      "Momentum compounds when leaders raise expectations."
     ]
   },
   {
@@ -79,11 +79,11 @@ export const books: Book[] = [
     tags: ["management", "engineering", "system"],
     rating: 4.7,
     review:
-      "A deeply useful operating manual for engineering leadership. I value how it treats org design, career ladders, and communication bandwidth as interconnected systems. It helped me articulate why leadership is architecture, not firefighting.",
+      "Scaling engineering organizations introduces complexity in communication, decision-making, and coordination. Larson emphasizes designing organizations intentionally. Team structures, reporting lines, and communication pathways directly affect productivity, and small structural improvements can materially improve outcomes.",
     takeaways: [
-      "Org design decisions are product decisions in disguise.",
-      "Leadership leverage comes from repeatable systems.",
-      "Scale requires explicit interfaces between teams."
+      "Organizational design determines engineering velocity.",
+      "Clear decision ownership reduces friction.",
+      "Systems thinking improves leadership effectiveness."
     ]
   },
   {
@@ -94,11 +94,11 @@ export const books: Book[] = [
     tags: ["self-development", "psychology", "system"],
     rating: 4.8,
     review:
-      "Atomic Habits is a practical thesis on why execution fails even when strategy is sound. Big goals are not enough; systems are what produce outcomes. The identity layer is the strongest insight: sustainable change happens when behavior becomes part of self-definition, not just a temporary effort cycle. I apply this directly to leadership and teams, because culture is simply repeated behavior over time.",
+      "Large transformations rarely occur through dramatic efforts. They emerge through consistent small improvements. James Clear reframes change around systems rather than goals. Goals define direction, but systems determine outcomes. This applies directly to leadership. Organizations often declare ambitious goals but fail to adjust the daily behaviors required to achieve them. Real improvement comes from redesigning the environment that shapes behavior.",
     takeaways: [
-      "Systems outperform motivation over long time horizons.",
-      "Environment design shapes behavior more reliably than willpower.",
-      "Small consistent actions compound into outsized long-term outcomes."
+      "Systems outperform motivation.",
+      "Small improvements compound dramatically over time.",
+      "Culture is repeated behaviors shared by a group."
     ]
   },
   {
@@ -109,11 +109,11 @@ export const books: Book[] = [
     tags: ["religion", "philosophy", "self-development"],
     rating: 5.0,
     review:
-      "The Gita is one of the deepest leadership texts I return to. Its core insight, act according to dharma without attachment to outcomes, is a powerful antidote to fear-driven decision-making. In executive life, this matters: when ego attaches to results, judgment gets distorted. The Gita restores clarity by grounding action in duty, principle, and inner steadiness.",
+      "The Bhagavad Gita is not simply a religious text. It is a profound philosophical discussion about duty, action, and detachment. Arjuna stands on the battlefield overwhelmed by the consequences of the decisions he must make. Krishna's guidance is clear: act according to your dharma, without attachment to outcomes. This idea has deep implications for leadership. When leaders become overly attached to results, fear and ego begin to distort judgment. Decisions become reactive instead of principled. The Gita encourages disciplined action rooted in purpose rather than outcome anxiety.",
     takeaways: [
-      "Act with conviction while detaching from obsessive outcome control.",
-      "Duty and integrity should anchor decision-making under pressure.",
-      "Purpose clarity reduces emotional volatility in high-stakes moments."
+      "Act with conviction, but detach from obsessive outcome control.",
+      "Duty and integrity must guide decision-making.",
+      "Clarity of purpose reduces emotional volatility."
     ]
   },
   {
@@ -124,11 +124,11 @@ export const books: Book[] = [
     tags: ["management", "strategy", "finance"],
     rating: 4.3,
     review:
-      "A strong lens for understanding when speed beats efficiency. I don’t treat this as a universal playbook, but as a context-specific doctrine for networked markets. Its real value is teaching when to violate default best practices intentionally.",
+      "Most business literature emphasizes efficiency. Blitzscaling argues that in certain markets, speed matters more than efficiency. When network effects or platform dynamics are present, the company that scales first often captures the entire market. Blitzscaling companies deliberately tolerate temporary chaos while expanding before competitors can catch up. It is risky and should be used carefully, but in winner-take-most markets it can create enormous advantages.",
     takeaways: [
-      "Scale stage determines which tradeoffs are rational.",
-      "Speed can be a strategic moat in winner-take-most markets.",
-      "Hypergrowth requires deliberate tolerance for temporary inefficiency."
+      "Some markets reward speed over efficiency.",
+      "Network-driven markets often produce winner-take-most outcomes.",
+      "Leaders must balance controlled chaos with strategic clarity."
     ]
   },
   {
@@ -139,11 +139,11 @@ export const books: Book[] = [
     tags: ["product", "management", "system"],
     rating: 4.6,
     review:
-      "This book articulates a failure mode I see often: teams optimized for output instead of outcomes. It helped me tighten the connection between product bets, customer truth, and economic impact. A must for leaders serious about product discipline.",
+      "Many organizations believe they are product-driven. In reality, they are trapped in feature production cycles. Melissa Perri calls this the build trap, when companies measure success by how much they ship rather than by the value they create. Escaping the build trap requires shifting from output metrics to outcome metrics and connecting product work with measurable business impact.",
     takeaways: [
-      "Shipping volume is not the same as product progress.",
-      "Outcome metrics should govern roadmap decisions.",
-      "Discovery and delivery need equal executive attention."
+      "Shipping features is not the same as creating value.",
+      "Product teams should be accountable for outcomes.",
+      "Discovery and experimentation must precede development."
     ]
   },
   {
@@ -154,11 +154,11 @@ export const books: Book[] = [
     tags: ["product", "engineering", "management"],
     rating: 4.7,
     review:
-      "Raw, practical, and full of hard-earned lessons from building iconic products. I appreciate its honesty about people dynamics, product taste, and operational reality. It mirrors my own belief that craft and conviction must travel together.",
+      "Tony Fadell's reflections from building iPod and Nest reinforce a core truth: great products require obsessive attention to details others consider trivial. Design is not decoration, it is how a product behaves. The book also highlights the role of product leadership in balancing engineering feasibility, design elegance, and business viability.",
     takeaways: [
-      "Great products are built through relentless iteration and taste.",
-      "Culture is encoded in who gets hired and promoted.",
-      "Execution quality depends on tight product-engineering loops."
+      "Details create differentiation.",
+      "Product quality emerges from cross-functional collaboration.",
+      "Leadership must protect the product vision."
     ]
   },
   {
@@ -214,11 +214,11 @@ export const books: Book[] = [
     tags: ["product", "management", "system", "AI"],
     rating: 4.6,
     review:
-      "An excellent map of network effects and the sequencing required to ignite them. It changed how I think about marketplace flywheels and activation bottlenecks. The strategic insight is timing: growth loops must be architected before they can be optimized.",
+      "Many modern technology companies are not traditional products, they are networks. Marketplaces, social platforms, collaboration tools, and developer ecosystems all rely on network effects. But networks face a paradox: they only become valuable when many people use them. Successful companies solve this by creating an initial network nucleus, often a small, highly engaged community that generates value immediately. Network effects do not emerge automatically. They are engineered.",
     takeaways: [
-      "Early network design decisions determine long-term defensibility.",
-      "Solve initial liquidity before chasing scale metrics.",
-      "Growth loops are systems, not isolated tactics."
+      "Networks grow when early users already receive value.",
+      "Seed the network with high-intent participants first.",
+      "Design features that reinforce participation loops."
     ]
   },
   {
@@ -229,11 +229,11 @@ export const books: Book[] = [
     tags: ["product", "management", "strategy"],
     rating: 4.7,
     review:
-      "This is still one of the sharpest books on go-to-market truth. Early adopters and mainstream buyers are not the same customer, and confusing them destroys momentum. Most products do not fail because the technology is weak; they fail because positioning and sequencing are wrong. The framework is simple but unforgiving: dominate one beachhead, earn credibility, then expand with intent.",
+      "Many startups believe product-market fit is the finish line. In reality, it is only the beginning. Geoffrey Moore explains why so many promising technologies stall after early traction. Early adopters love innovation, but mainstream customers care about reliability, references, and risk reduction. Crossing the chasm requires strategic discipline. Instead of chasing broad markets, successful companies dominate a narrow beachhead first, then expand.",
     takeaways: [
-      "Early traction does not guarantee mainstream adoption.",
-      "Win a narrow beachhead market before broadening scope.",
-      "Category narrative and referenceability drive mainstream trust."
+      "Early adopters are not the mainstream market.",
+      "Focus on winning a specific niche before expanding.",
+      "Market momentum is built through sequential dominance."
     ]
   },
   {
@@ -259,11 +259,11 @@ export const books: Book[] = [
     tags: ["engineering", "system", "AI"],
     rating: 4.9,
     review:
-      "Modern software companies are fundamentally data systems, and this book explains that reality without hand-waving. Kleppmann makes the tradeoffs explicit: replication, partitioning, consistency, fault tolerance, and streaming each carry product and economic consequences. For me, the executive lesson is simple: architecture decisions define your scalability ceiling long before market narratives do.",
+      "Modern companies run on data infrastructure. This book explains the principles behind scalable systems, replication, consistency, fault tolerance, and distributed processing. Understanding these concepts helps leaders appreciate the tradeoffs involved in building large-scale platforms. The real lesson is that architecture decisions determine how easily a system can evolve, and thoughtful infrastructure design creates both resilience and strategic flexibility.",
     takeaways: [
-      "Architecture decisions compound over time into either leverage or fragility.",
-      "Distributed systems require explicit tradeoffs, not framework defaults.",
-      "Data infrastructure should be treated as a strategic asset, not a backend detail."
+      "Data architecture determines system scalability.",
+      "Distributed systems require careful tradeoffs.",
+      "Reliable infrastructure enables rapid innovation."
     ]
   },
   {
@@ -274,11 +274,11 @@ export const books: Book[] = [
     tags: ["product", "management", "leadership"],
     rating: 4.6,
     review:
-      "This book captures what great product leadership looks like beyond ceremony. It emphasizes context, trust, and capability-building over command-and-control. I align strongly with its view that product excellence is a leadership system.",
+      "Empowered focuses on leadership's role in enabling great product teams. Many organizations unintentionally cripple teams through excessive control by dictating solutions instead of defining problems. Empowered leaders set clear outcomes, build strong teams, and trust those teams to discover solutions, which expands innovation capacity.",
     takeaways: [
-      "Leaders should coach judgment, not just enforce process.",
-      "Empowered teams need high context and high accountability.",
-      "Product outcomes improve when leaders invest in talent systems."
+      "Leaders define problems and outcomes, not features.",
+      "High-performing teams require trust and autonomy.",
+      "Innovation emerges when teams are empowered to experiment."
     ]
   },
   {
@@ -320,11 +320,11 @@ export const books: Book[] = [
     tags: ["management", "leadership", "culture"],
     rating: 4.6,
     review:
-      "A classic that still feels fresh because it is rooted in managerial reality. It reinforces strengths-based leadership and role fit over generic doctrine. I value its insistence on measurable outcomes and human nuance together.",
+      "Traditional management assumes employees can be molded into ideal roles through training. This book argues the opposite: great managers build roles around natural strengths rather than forcing people into predefined molds. High-performing teams emerge when leaders identify individual talents and align responsibilities accordingly.",
     takeaways: [
-      "Great managers personalize, they do not homogenize.",
-      "Role fit is a strategic performance lever.",
-      "Culture quality is built in daily manager behavior."
+      "Talent matters more than training.",
+      "Managers should optimize for strength alignment.",
+      "Engagement grows when individuals do work they excel at."
     ]
   },
   {
@@ -335,11 +335,11 @@ export const books: Book[] = [
     tags: ["management", "strategy", "system"],
     rating: 4.5,
     review:
-      "A valuable diagnosis of why scaled companies lose insurgent energy. It helped me articulate how to preserve frontline obsession and speed while adding structure. The lesson is clear: scale should increase clarity, not bureaucracy.",
+      "As companies grow, they often lose the qualities that made them successful in the first place. Founder’s Mentality highlights three attributes that must survive scale: an insurgent mission, frontline obsession with customers, and employee ownership mindset. Without these, growth drifts into bureaucracy and blurred accountability.",
     takeaways: [
-      "Insurgent mission must survive organizational growth.",
-      "Complexity tax can silently weaken execution.",
-      "Frontline feedback loops are strategic intelligence."
+      "Maintain a clear insurgent mission.",
+      "Stay deeply connected to customers.",
+      "Empower employees with ownership mentality."
     ]
   },
   {
@@ -380,11 +380,11 @@ export const books: Book[] = [
     tags: ["product", "psychology", "system"],
     rating: 4.4,
     review:
-      "A practical behavioral framework for habit-forming products. I read it with both product ambition and ethical caution. The most important question is not only can we shape behavior, but should we, and toward what end.",
+      "Great products become habits. Hooked explains repeated engagement through a clear loop: trigger, action, variable reward, and investment. This framework shows why some products become daily routines while others fade. The core insight is that habit-forming products solve frequent problems in simple and rewarding ways.",
     takeaways: [
-      "Behavior loops can be designed intentionally.",
-      "Ethics must accompany persuasive product mechanics.",
-      "Retention quality matters more than raw engagement."
+      "Habit formation requires consistent value delivery.",
+      "Variable rewards increase engagement.",
+      "User investment deepens long-term retention."
     ]
   },
   {
@@ -410,11 +410,11 @@ export const books: Book[] = [
     tags: ["self-development", "philosophy", "psychology"],
     rating: 4.2,
     review:
-      "A useful prompt toward clearer mental habits. I treat it as reflective practice: thinking better is often about subtracting noise, not adding complexity. In leadership, clean thought precedes clean execution.",
+      "This book distills practical habits of effective thinkers. The most useful one is thinking about thinking, becoming aware of assumptions and challenging them deliberately. It encourages curiosity, experimentation, and reflection as repeatable tools for better reasoning.",
     takeaways: [
-      "Meta-cognition improves decision quality.",
-      "Clarity emerges from disciplined reflection.",
-      "Inner order supports external impact."
+      "Ask better questions.",
+      "Challenge assumptions regularly.",
+      "Reflection improves decision quality."
     ]
   },
   {
@@ -425,11 +425,11 @@ export const books: Book[] = [
     tags: ["product", "management", "engineering"],
     rating: 4.8,
     review:
-      "Most organizations claim they build products, but many are just feature factories. Inspired draws a hard line between output and value. Its enduring insight is that great products come from empowered teams solving meaningful customer problems, not from top-down requirement flow. This is foundational for building companies that learn faster than competitors.",
+      "Most organizations say they build products, but many build feature roadmaps. Inspired argues that great products come from empowered teams deeply connected to customer problems. The model is continuous discovery: test quickly with users, learn, and adjust. The winners are often the teams with the fastest learning loops.",
     takeaways: [
-      "Product management is problem discovery, not ticket administration.",
-      "Empowered teams should solve outcomes, not just execute plans.",
-      "Product velocity rises when learning loops accelerate."
+      "Product management is customer insight, not backlog management.",
+      "Empowered teams innovate faster than command-and-control teams.",
+      "Learning velocity determines product success."
     ]
   },
   {
@@ -455,11 +455,11 @@ export const books: Book[] = [
     tags: ["product", "management", "system"],
     rating: 4.6,
     review:
-      "A pragmatic, execution-ready product framework. I value its structured approach to hypothesis, validation, and iteration, especially for teams that need a repeatable operating model. It balances rigor with practicality.",
+      "Product success is rarely accidental. The Lean Product Playbook introduces a structured approach to product-market fit through rapid experimentation around real customer needs. The most useful lens is scientific inquiry: hypothesis, experiment, learning, iteration. Teams that institutionalize this loop move faster and waste fewer resources.",
     takeaways: [
-      "Product-market fit is discovered through disciplined loops.",
-      "Assumption testing should precede scale investment.",
-      "Structured experimentation lowers strategic risk."
+      "Product development should follow a learning loop.",
+      "Customer problems must guide solution design.",
+      "Rapid experimentation reduces risk dramatically."
     ]
   },
   {
@@ -485,11 +485,11 @@ export const books: Book[] = [
     tags: ["self-development", "philosophy", "psychology"],
     rating: 4.9,
     review:
-      "Frankl’s writing is both testimony and theory, and it lands with unusual force. The core point is that humans can endure extraordinary hardship when life has meaning. In leadership contexts, this is deeply practical. People do not sustain effort through incentives alone; they sustain effort when they understand why their work matters.",
+      "Frankl's insight is simple yet profound: humans can endure immense hardship when they believe their lives have meaning. Organizations often underestimate this. Compensation and incentives matter, but meaning sustains long-term commitment. Leaders who connect work with purpose unlock deeper motivation.",
     takeaways: [
-      "Meaning motivates more deeply than comfort or compensation.",
-      "Resilience grows when struggle is connected to purpose.",
-      "Leaders must connect daily execution to real human impact."
+      "Meaning drives resilience.",
+      "People endure hardship when they understand why it matters.",
+      "Leaders must connect effort to purpose."
     ]
   },
   {
@@ -515,11 +515,11 @@ export const books: Book[] = [
     tags: ["self-development", "psychology", "leadership"],
     rating: 4.3,
     review:
-      "A practical approach to mental fitness and self-sabotage patterns. I found it useful for leadership composure under stress and for coaching teams through high-pressure cycles. The core value is emotional governance.",
+      "Many professionals operate under internal pressure driven by self-doubt, fear of failure, or perfectionism. Positive Intelligence explains how these mental saboteurs undermine performance and how a calmer mindset improves decision quality under stress. For leaders, this is practical emotional governance.",
     takeaways: [
-      "Mental fitness can be trained like any performance skill.",
-      "Awareness interrupts reactive leadership patterns.",
-      "Composure improves judgment and team trust."
+      "Internal mental patterns shape external performance.",
+      "Self-awareness improves leadership effectiveness.",
+      "Emotional resilience strengthens decision-making."
     ]
   },
   {
@@ -545,11 +545,11 @@ export const books: Book[] = [
     tags: ["product", "management", "strategy"],
     rating: 4.5,
     review:
-      "A useful reframing of roadmaps as communication and strategy artifacts rather than feature checklists. This aligns with how I run executive planning: narrative, options, sequencing, and accountability. Good roadmaps create confidence without rigidity.",
+      "This book reframes roadmaps as strategic communication tools rather than rigid delivery schedules. Strong roadmaps describe problems, outcomes, and themes instead of locking teams into feature-date promises. That preserves alignment while still allowing teams to adapt as they learn.",
     takeaways: [
-      "Roadmaps should communicate outcomes, not just outputs.",
-      "Strategic sequencing is more important than exhaustive detail.",
-      "Transparency in tradeoffs builds stakeholder trust."
+      "Roadmaps should communicate direction, not promises.",
+      "Outcomes matter more than timelines.",
+      "Strategic alignment prevents feature chaos."
     ]
   },
   {
@@ -605,11 +605,11 @@ export const books: Book[] = [
     tags: ["management", "leadership", "operations"],
     rating: 4.8,
     review:
-      "A reliable transition blueprint that I’ve found highly practical in new leadership contexts. It emphasizes diagnosis, coalition-building, and sequencing early wins. Strong starts are structured, not improvised.",
+      "Leadership transitions are pivotal. The First 90 Days emphasizes diagnosing context quickly, turnaround, realignment, accelerated growth, or sustaining success, because each demands a different playbook. Early months set credibility, relationships, and momentum.",
     takeaways: [
-      "Diagnose context before imposing solutions.",
-      "Early wins build trust and strategic momentum.",
-      "Stakeholder mapping accelerates execution alignment."
+      "Diagnose the business context before acting.",
+      "Build alliances early.",
+      "Focus on quick wins that build credibility."
     ]
   },
   {
@@ -635,11 +635,11 @@ export const books: Book[] = [
     tags: ["math", "engineering", "philosophy"],
     rating: 4.3,
     review:
-      "A delightful reminder that mathematical thinking is deeply human and broadly useful. It strengthened my instinct for abstraction and pattern recognition in strategic planning. Elegant reasoning often creates practical advantage.",
+      "The Joy of X reframes mathematics as a way to understand real-world patterns, growth, networks, and optimization, not just formulas. For leaders, mathematical intuition improves strategic reasoning, especially in forecasting and system-level decisions.",
     takeaways: [
-      "Abstraction can simplify complex decisions.",
-      "Math literacy supports better strategic judgment.",
-      "Curiosity-driven learning expands leadership range."
+      "Many complex systems follow mathematical patterns.",
+      "Understanding growth dynamics improves forecasting.",
+      "Quantitative thinking strengthens strategic decisions."
     ]
   },
   {
@@ -665,11 +665,11 @@ export const books: Book[] = [
     tags: ["management", "engineering", "system"],
     rating: 4.8,
     review:
-      "One of the most practical books on how engineering leadership actually evolves. Fournier maps each transition clearly: from IC to manager, manager to director, and director to executive. The most important idea is that technical leadership eventually becomes organizational design. Your leverage shifts from writing code to building systems and developing leaders.",
+      "Many technical professionals assume leadership means greater influence over technical decisions. In reality, leadership shifts the focus entirely. Camille Fournier explains how engineering careers evolve from individual contributor to organizational leader. As leaders advance, their impact increasingly comes from building teams, mentoring managers, and designing effective organizations. The biggest transition is psychological: letting go of personal technical contributions in favor of enabling others.",
     takeaways: [
-      "Leadership scales by developing other leaders, not centralizing decisions.",
-      "Communication architecture is a core engineering leadership responsibility.",
-      "At senior levels, organizational design matters more than individual output."
+      "Leadership impact scales through other people's success.",
+      "Coaching becomes more important than directing.",
+      "The most senior leaders shape organizational systems."
     ]
   },
   {
@@ -695,11 +695,11 @@ export const books: Book[] = [
     tags: ["product", "engineering", "system"],
     rating: 4.6,
     review:
-      "A practical method for connecting user journeys to release strategy. I like its ability to create shared context quickly across product and engineering. Good mapping reduces waste and improves sequencing discipline.",
+      "Traditional backlogs fragment products into disconnected features. User Story Mapping restores the customer narrative by mapping the full journey and showing how features contribute to real workflows. This prevents teams from over-optimizing fragments while missing end-to-end value.",
     takeaways: [
-      "Map the user journey before decomposing into tickets.",
-      "Narrative flow improves backlog quality.",
-      "Release slicing should preserve end-to-end user value."
+      "Product design should follow user journeys, not isolated features.",
+      "Visualizing workflows reveals hidden gaps.",
+      "Story mapping keeps teams focused on customer value."
     ]
   },
   {
@@ -710,11 +710,11 @@ export const books: Book[] = [
     tags: ["strategy", "management", "finance"],
     rating: 4.5,
     review:
-      "This book is a call to build what does not yet exist. Thiel’s core point is that enduring value comes from moving 0 to 1, not competing harder in crowded 1 to n markets. The argument around secrets is what stays with me: transformative companies are built on non-obvious truths the market has not fully seen yet.",
+      "Most companies compete. Very few create. Zero to One argues that real progress happens when someone builds something genuinely new, when the world moves from 0 to 1, not from 1 to n. Competition feels productive, but it is often a tax on innovation. The deeper lesson is about secrets. Every important company is built around a truth that most people have not yet recognized.",
     takeaways: [
-      "Great companies are built on non-obvious insights about the future.",
-      "Hyper-competition often signals weak market selection.",
-      "Aim to build a category-defining company, not a better copy."
+      "Great companies are built on non-obvious insights.",
+      "Competing aggressively is often a sign you picked the wrong market.",
+      "Innovation happens when someone discovers a secret about how the world works."
     ]
   },
   {
@@ -830,11 +830,11 @@ export const books: Book[] = [
     tags: ["philosophy", "self-development", "leadership"],
     rating: 4.9,
     review:
-      "Meditations feels like a private operating manual for inner leadership. Aurelius keeps returning to one discipline: distinguish what you control from what you do not, then act with character. In executive settings, that distinction is priceless. Power, reputation, and outcomes fluctuate; integrity and response quality remain in your hands.",
+      "This book was never meant to be published. It was a Roman emperor writing private reflections to himself about how to live well. What makes Meditations powerful is its clarity about control. External events are unpredictable, while character remains within control. The Stoic perspective forces leaders to detach from ego and focus on responsibility. In executive contexts, this mindset is invaluable.",
     takeaways: [
-      "Focus energy on controllables: judgment, action, and character.",
-      "External validation is unstable; inner discipline is durable.",
-      "Emotional steadiness is a core leadership capability under uncertainty."
+      "Focus energy on what you can control: your actions and decisions.",
+      "External validation is unstable; character is durable.",
+      "Leadership requires emotional discipline."
     ]
   },
   {
@@ -920,11 +920,11 @@ export const books: Book[] = [
     tags: ["philosophy", "psychology", "leadership", "management"],
     rating: 4.8,
     review:
-      "Greene maps human behavior with unusual precision: status games, projection, envy, self-deception, and the emotional forces that quietly drive decisions. I value this book because leadership is not only strategy and execution; it is deep human interpretation. If you can read incentives, emotions, and ego structures clearly, you reduce friction, make cleaner calls, and build institutions that are both high-performing and psychologically realistic.",
+      "Technology companies often focus on systems and metrics while underestimating psychology. Greene maps recurring patterns in behavior, status-seeking, insecurity, manipulation, and ambition. The value is awareness: organizations are made of people, and people are driven by emotion, ego, and perception as much as logic.",
     takeaways: [
-      "Self-awareness is the first law; blind spots in the leader become systemic risks in the organization.",
-      "Most conflicts are emotional before they are rational, diagnose motive and identity before prescribing process.",
-      "Durable influence comes from disciplined empathy, clear boundaries, and long-horizon thinking."
+      "Self-awareness is the foundation of leadership.",
+      "Emotional intelligence prevents many organizational failures.",
+      "Understanding human motivation improves influence."
     ]
   },
   {
@@ -965,11 +965,11 @@ export const books: Book[] = [
     tags: ["philosophy", "leadership", "management", "finance", "system"],
     rating: 4.8,
     review:
-      "A foundational work in statecraft, power, economics, and institutional design. What stands out is its unapologetic realism: strategy is inseparable from incentives, intelligence, resource allocation, and moral responsibility. I return to Arthashastra as a deep systems text. It reminds me that durable leadership requires both principled intent and hard-nosed execution.",
+      "Written over 2,000 years ago, the Arthashastra is one of the most pragmatic books ever written on governance and strategy. Kautilya approaches leadership with clear realism. Power must be exercised intelligently, institutions must be designed carefully, and leaders must balance ethics with strategic awareness. The lesson applies directly to modern organizations: durable institutions emerge when incentives, responsibilities, and accountability are carefully aligned.",
     takeaways: [
-      "Strategy succeeds when incentives, governance, and execution are aligned.",
-      "Power without ethics corrodes legitimacy; ethics without capability collapses outcomes.",
-      "Institutional durability comes from disciplined systems, not charismatic leadership alone."
+      "Strategy requires understanding both human behavior and incentives.",
+      "Institutions outperform individual brilliance.",
+      "Leaders must balance idealism with pragmatic realism."
     ]
   }
 ];
