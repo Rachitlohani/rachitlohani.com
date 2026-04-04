@@ -14,6 +14,8 @@ export const papers: Paper[] = [
   { title: "Kafka: A Distributed Messaging System", url: "/papers/Kafka.pdf" },
   { title: "Google Cluster Scheduler (Borg/Omega) — Hamilton", url: "/papers/paper-hamilton.pdf" },
   { title: "Zanzibar: Google’s Consistent, Global Authorization System", url: "/papers/atc19-pang.pdf" },
-  { title: "Large-scale cluster management at Google with Borg", url: "/papers/43438.pdf" }
-  { title: "TurboQuant", url: "/papers/turboquant.pdf" }
+  { title: "Large-scale cluster management at Google with Borg", url: "/papers/43438.pdf" },
+  { title: "TurboQuant", url: "/papers/turboquant.pdf" },
+  { title: "Zep - memory and context graph", url: "/papers/zep.pdf" }
+
 ];

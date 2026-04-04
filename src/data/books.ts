@@ -11,6 +11,37 @@ export type Book = {
 };
 
 export const books: Book[] = [
+  
+  {
+    title: "Neural Thickets:Diverse Task Experts Are Dense Around Pretrained Weights",
+    author: "MIT",
+    amazonUrl: "https://rachitlohani.com/papers/Thickets.pdf",
+    coverImage: "/images/books/Thickets.png",
+    tags: ["AI", "Papers"],
+    rating: 5.0,
+    review:
+      "The authors proposed a fully parallel, gradient-free post-training algorithm called RandOpt that improves pretrained large language models by simply sampling random Gaussian noise over the model weights, evaluating these perturbed models, and ensembling the predictions of the top performers. WHY it matters? This work challenges the assumption that aligning or post-training language models strictly requires complex, sequential optimization like reinforcement learning. It reveals a structural phenomenon termed “neural thickets,” demonstrating that at sufficient scale, a pretrained model acts as a distribution containing dense, diverse task-specific experts right in its immediate weight neighborhood."
+    
+  }, 
+
+  {
+    title: "TurboQuant- Redefining AI efficiency with extreme compression",
+    author: "Google",
+    amazonUrl: "https://rachitlohani.com/papers/turboquant.pdf",
+    coverImage: "/images/books/TurboQuant.png",
+    tags: ["AI", "Papers"],
+    rating: 5.0,
+    review:
+      "TurboQuant is a vector quantization algorithm. It turns a vector of numbers into another vector of numbers that takes up less memory.Here is the key idea behind TurboQuant: Before quantizing a vector, we randomly rotate it in the n-dimensional space it resides in. The corresponding counter-rotation is applied during dequantization. What matters for the purposes of this explanation is: Vectors with this type of quasi-sparse structure are terrible targets for component quantization. Reducing precision in such a vector effectively turns the massive component into 1 (assuming the vector is normalized), and all other components into 0. That is, quantization \"snaps\" the vector to its nearest cardinal direction. This collapses the information content of the vector, as identifying a cardinal direction takes only log2(2n) bits, whereas the quantized vector can hold k(n) bits (assuming k bits per component).",
+    takeaways: [
+      "Johnson–Lindenstrauss Transforms are powerful tools for reducing the dimensionality of data while preserving key characteristics of that data",
+      "Quantization can be used to reduce the bit usage and reduce complexity",
+      "rotate the vector in a random direction to reduce the impact of quantization."
+    ]
+  },
+
+  
+  
   {
     title: "Adaptive Leadership",
     author: "Ronald A. Heifetz, Marty Linsky, Alexander Grashow",
